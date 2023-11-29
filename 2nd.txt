@@ -1,0 +1,40 @@
+list([], []).
+list([Head Tail], [Head List]) :- list (Tail, List).
+member (X, [X|Tail])
+member (X, [Head Tail]):- member (X, Tail).
+length([], 0).
+length([Head Tail], Length) :- length (Tail, Length1), Length is Length1 + 1.
+
+##RESULT
+
+Sure, here is a line-by-line explanation of the code:
+
+Prolog
+list([], []).
+Use code with caution. Learn more
+This line defines a fact called list(). The fact says that the empty list is a list. The empty list is represented by the square brackets [].
+
+Prolog
+list([Head|Tail], [Head|List]) :- list(Tail, List).
+Use code with caution. Learn more
+This line defines a rule called list(). The rule says that a list can be constructed by prepending an element to an existing list. The | symbol is used to prepend an element to a list. For example, the list [1, 2, 3] can be constructed by prepending the element 1 to the list [2, 3].
+
+Prolog
+member(X, [X|Tail]).
+Use code with caution. Learn more
+This line defines a fact called member(). The fact says that an element is a member of a list if it is the head of the list. For example, the element 1 is a member of the list [1, 2, 3].
+
+Prolog
+member(X, [Head|Tail]) :- member(X, Tail).
+Use code with caution. Learn more
+This line defines a rule called member(). The rule says that an element is a member of a list if it is a member of the tail of the list. For example, the element 2 is a member of the list [1, 2, 3] because it is a member of the tail [2, 3].
+
+Prolog
+length([], 0).
+Use code with caution. Learn more
+This line defines a fact called length(). The fact says that the length of the empty list is 0.
+
+Prolog
+length([Head|Tail], Length) :- length(Tail, Length1), Length is Length1 + 1.
+Use code with caution. Learn more
+This line defines a rule called length(). The rule says that the length of a list is the length of the tail of the list plus 1. For example, the length of the list [1, 2, 3] is 3 because the length of the tail [2, 3] is 2, and 2 + 1 = 3.

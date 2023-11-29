@@ -1,0 +1,112 @@
+def dfs (graph, start, goal, visited=None): 
+if visited is None:
+visited set ()
+
+if start == goal:
+
+print("Goal reached!")
+
+return
+
+visited.add(start)
+
+print (f"Visiting node: (start)") 
+
+for neighbor in graph [start]:
+
+if neighbor not in visited: 
+dfs (graph, neighbor, goal, visited)
+
+print ("Goal not reachable.")
+
+#Define the graph
+
+graph (
+
+'A': ['B', 'C'],
+
+'B': ['A', 'D'],
+
+'C': ['A', 'E'],
+
+'D': ['B', 'F'],
+'E': ['C', 'F'],
+'F': ['D', 'E'],
+
+
+
+}
+
+dfs(graph, 'A','F')
+
+
+
+###RESULT
+Sure, here is a line-by-line explanation of the code:
+
+Python
+def dfs(graph, start, goal, visited=None):
+Use code with caution. Learn more
+This line defines a function called dfs(). It takes four arguments: graph, start, goal, and visited. The graph argument is a dictionary representing the graph. The start argument is the starting node of the search. The goal argument is the node we are trying to find. The visited argument is a set of nodes that have already been visited.
+
+Python
+if visited is None:
+    visited = set()
+Use code with caution. Learn more
+This line checks if the visited argument has been provided. If not, it creates a new empty set and assigns it to the visited variable.
+
+Python
+if start == goal:
+    print("Goal reached!")
+    return
+Use code with caution. Learn more
+This line checks if the current node (start) is the same as the goal node. If it is, it prints a message that the goal has been reached and returns from the function.
+
+Python
+visited.add(start)
+Use code with caution. Learn more
+This line adds the current node (start) to the visited set. This ensures that the node will not be visited again.
+
+Python
+print(f"Visiting node: {start}")
+Use code with caution. Learn more
+This line prints a message that the current node (start) is being visited.
+
+Python
+for neighbor in graph[start]:
+Use code with caution. Learn more
+This line loops over all of the neighbors of the current node (start). The neighbors of a node are the nodes that are connected to it by an edge.
+
+Python
+if neighbor not in visited:
+Use code with caution. Learn more
+This line checks if the neighbor has already been visited. If not, it proceeds to explore the neighbor.
+
+Python
+dfs(graph, neighbor, goal, visited)
+Use code with caution. Learn more
+This line recursively calls the dfs() function to explore the neighbor. The neighbor becomes the new start node, and the goal node remains the same.
+
+Python
+print("Goal not reachable.")
+Use code with caution. Learn more
+This line is never reached because the function returns from the first if start == goal: statement if the goal is reached. It is left here for completeness.
+
+Python
+# Define the graph
+
+graph = {
+    'A': ['B', 'C'],
+    'B': ['A', 'D'],
+    'C': ['A', 'E'],
+    'D': ['B', 'F'],
+    'E': ['C', 'F'],
+    'F': ['D', 'E'],
+}
+Use code with caution. Learn more
+This block of code defines the graph as a dictionary. The keys of the dictionary are the nodes of the graph, and the values of the dictionary are lists of the neighbors of each node.
+
+Python
+dfs(graph, 'A', 'F')
+Use code with caution. Learn more
+This line calls the dfs() function to find the path from node A to node F in the graph.

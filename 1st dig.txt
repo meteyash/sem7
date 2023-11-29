@@ -1,0 +1,40 @@
+parent (pam, bob).
+parent (tom, bob).
+parent (tom, liz).
+parent (bob, ann).
+parent (bob, pat).
+parent (pat, jim).
+
+child(X, Y) :- parent (Y, X).
+sibling (X, Y) :- parent (X,Z), parent (Y,Z), X \= Y.
+
+
+##RESULT
+Sure, here is a line-by-line explanation of the code:
+
+Prolog
+parent (pam, bob).
+parent (tom, bob).
+parent (tom, liz).
+parent (bob, ann).
+parent (bob, pat).
+parent (pat, jim).
+Use code with caution. Learn more
+These lines define facts about the parent-child relationship. The fact parent(pam, bob) means that Pam is the parent of Bob. The fact parent(tom, liz) means that Tom is the parent of Liz, and so on.
+
+Prolog
+child(X, Y) :- parent (Y, X).
+Use code with caution. Learn more
+This line defines a rule called child(X, Y). The rule says that X is a child of Y if Y is a parent of X. The :- symbol is used to separate the head of the rule from the body of the rule. The head of the rule is child(X, Y), and the body of the rule is parent(Y, X).
+
+Prolog
+sibling (X, Y) :- parent (X,Z), parent (Y,Z), X \= Y.
+Use code with caution. Learn more
+This line defines a rule called sibling(X, Y). The rule says that X is a sibling of Y if they have the same parent and they are not the same person. The :- symbol is used to separate the head of the rule from the body of the rule. The head of the rule is sibling(X, Y), and the body of the rule is parent(X,Z), parent(Y,Z), X \= Y. The \= symbol means "not equal to".
+
+You can use these rules to query the Prolog interpreter about the parent-child relationship. For example, you could query the interpreter to find out if Bob is a child of Tom:
+
+Prolog
+?- child(bob, tom).
+Use code with caution. Learn more
+This query will succeed, and the Prolog interpreter will print true.

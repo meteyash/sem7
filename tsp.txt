@@ -1,0 +1,96 @@
+import sys
+from itertools import permutations
+
+V = 4
+
+def tsp(graph, s):
+	vertex = []
+	for i in range(V):
+		if i != s:
+			vertex.append(i)
+
+	min_cost = sys.maxsize
+	next_permutation = permutations(vertex)
+	for i in next_permutation:
+		current_cost = 0
+		k = s
+		for j in i:
+			current_cost += graph[k][j]
+			k = j
+		current_cost += graph[k][s]
+		min_cost = min(min_cost, current_cost)
+
+	return min_cost
+
+graph = [[0, 10, 15, 20], [10, 0, 35, 25], [15, 35, 0, 30], [20, 25, 30, 0]]
+s = 0
+print(tsp(graph, s))
+
+###RESULT
+
+Python
+from sys import maxsize
+from itertools import permutations
+
+V = 4
+Use code with caution. Learn more
+These lines import the necessary libraries for the code. The sys library is used to access the maxsize constant, which is used to represent the maximum possible value of an integer. The itertools library is used to access the permutations() function, which is used to generate all possible permutations of a list.
+
+Python
+def tsp(graph, s):
+Use code with caution. Learn more
+This line defines a function called tsp(). The function takes two arguments: graph and s. The graph argument is an adjacency matrix representing the graph. The s argument is the starting vertex of the TSP problem.
+
+Python
+vertex = []
+for i in range(V):
+	if i != s:
+		vertex.append(i)
+Use code with caution. Learn more
+These lines create a list of all the vertices in the graph except for the starting vertex. This list will be used to generate all possible permutations of the vertices.
+
+Python
+min_cost = maxsize
+next_permutation = permutations(vertex)
+Use code with caution. Learn more
+These lines initialize a variable called min_cost to the maximum possible value of an integer. This variable will be used to store the minimum cost of any permutation of the vertices. The permutations() function is called to generate all possible permutations of the vertices.
+
+Python
+for i in next_permutation:
+Use code with caution. Learn more
+This line starts a loop that iterates over all possible permutations of the vertices.
+
+Python
+current_cost = 0
+k = s
+for j in i:
+Use code with caution. Learn more
+These lines initialize a variable called current_cost to 0. This variable will be used to store the cost of the current permutation of the vertices. The variable k is set to the starting vertex.
+
+Python
+current_cost += graph[k][j]
+k = j
+Use code with caution. Learn more
+This line adds the cost of going from the current vertex (k) to the next vertex (j) to the current_cost variable. The variable k is then set to the next vertex (j).
+
+Python
+current_cost += graph[k][s]
+Use code with caution. Learn more
+This line adds the cost of going from the last vertex (k) back to the starting vertex (s) to the current_cost variable.
+
+Python
+min_cost = min(min_cost, current_cost)
+Use code with caution. Learn more
+This line compares the current_cost to the min_cost variable and updates the min_cost variable if the current_cost is less than the min_cost.
+
+Python
+return min_cost
+Use code with caution. Learn more
+This line returns the min_cost variable.
+
+Python
+graph = [[0, 10, 15, 20], [10, 0, 35, 25], [15, 35, 0, 30], [20, 25, 30, 0]]
+s = 0
+print(tsp(graph, s))
+Use code with caution. Learn more
+These lines create an adjacency matrix representing the graph and set the starting vertex to 0. The tsp() function is then called to find the minimum cost TSP solution for the graph. The solution is then printed to the console.

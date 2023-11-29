@@ -1,0 +1,46 @@
+ap([],L, L).
+ap([X L1], L2, [X|L3]):- ap(L1,L2,L3). 
+add (X, L, [X,L]).
+del (X, [X]Tail], Tail).
+del (X, [Y|Tail], [Y|Tail1]):- del (X, Tail, Taill).
+
+
+##RESULT
+
+
+Sure, here is a line-by-line explanation of the code:
+
+Prolog
+ap([], L, L).
+Use code with caution. Learn more
+This line defines a recursive predicate called ap() that implements append in Prolog. The predicate takes three arguments: two lists and a resulting list. The predicate is true if the resulting list is the concatenation of the first two lists.
+
+In this case, the predicate is true if the first list is empty and the resulting list is the second list. This is because appending an empty list to any list results in the original list.
+
+Prolog
+ap([X|L1], L2, [X|L3]):- ap(L1, L2, L3).
+Use code with caution. Learn more
+This line defines the recursive case of the ap() predicate. The predicate is true if the first list is not empty and the resulting list is the concatenation of the first element of the first list, the tail of the first list, and the second list.
+
+This is because appending an element to the front of a list is the same as prepending the element to the result of appending the tail of the list to the second list.
+
+Prolog
+add(X, L, [X|L]).
+Use code with caution. Learn more
+This line defines a predicate called add() that inserts an element at the beginning of a list. The predicate takes three arguments: the element to add, the list to add it to, and the resulting list.
+
+The predicate is true if the resulting list is the original list with the element to add prepended to it.
+
+Prolog
+del(X, [X|Tail], Tail).
+Use code with caution. Learn more
+This line defines a predicate called del() that deletes the first occurrence of an element from a list. The predicate takes three arguments: the element to delete, the list to delete it from, and the resulting list.
+
+The predicate is true if the resulting list is the tail of the original list if the element to delete is the head of the original list. This is because deleting the first occurrence of an element from a list is the same as removing the head of the list if the head of the list is the element to delete.
+
+Prolog
+del(X, [Y|Tail], [Y|Tail1]):- del(X, Tail, Tail1).
+Use code with caution. Learn more
+This line defines the recursive case of the del() predicate. The predicate is true if the resulting list is the original list with the head of the list removed if the element to delete is not the head of the original list.
+
+This is because deleting the first occurrence of an element from a list is the same as removing the head of the list if the head of the list is not the element to delete.
